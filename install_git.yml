@@ -1,0 +1,10 @@
+---
+  - name: Installing Git
+    hosts: kmaster          #host/server group
+    become: yes             # install using root
+    become_user: root
+    tasks:               
+      - name: git install   # task
+        yum:                #yum Module 
+          name: git         # argument from yum module
+          state: present    # argument from yum module

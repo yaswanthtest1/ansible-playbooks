@@ -1,0 +1,15 @@
+---
+ - name: creating multiple files
+   hosts: all
+   become: yes
+   become_user: vagrant
+   tasks:
+     - name: create multiple files
+       file: 
+         path: "{{item.location}}"
+         mode: "{{item.mode}}"
+         state: touch 
+       with_items:
+       - { location: '/home/vagrant/multifile1.txt', mode: '0755' }
+       - { location: '/home/vagrant/multifile2.txt', mode: '0644' }
+        

@@ -1,0 +1,12 @@
+---
+ - name: create multiple files on kworkers
+   hosts: kworkers
+   become: yes
+   become_user: vagrant
+   tasks:
+    - name: create a file in kworkers
+      file:
+        path: /home/vagrant/createdfile.txt
+        state: touch
+        mode: 755
+      
